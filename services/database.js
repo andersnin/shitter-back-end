@@ -12,7 +12,9 @@ function getTweets() {
       tweets.message,
       tweets.created_at,
       users.name,
-      users.username
+      users.username,
+      users.img_url,
+      users.bio
     FROM
       tweets
     INNER JOIN users ON
@@ -29,7 +31,9 @@ function getTweetsByUsername(username) {
       tweets.message,
       tweets.created_at,
       users.name,
-      users.username
+      users.username,
+      users.img_url,
+      users.bio
     FROM
       tweets
     INNER JOIN users ON

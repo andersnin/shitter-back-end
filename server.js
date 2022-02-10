@@ -69,6 +69,12 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+app.get("/edit/:username", async (req, res) => {
+  const { username } = req.params;
+  const user = await getUserByUsername(username);
+  res.send(user);
+})
+
 app.get("/session", authenticate, (req, res) => {
   const { username } = req.user;
 
