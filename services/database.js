@@ -56,18 +56,20 @@ function createTweet(message, user_id) {
     .then((results) => results.rows[0]);
 }
 
-function createUser(name, username, password) {
+function createUser(name, username, password, img_url, bio) {
   return database.query(`
     INSERT INTO users
-      (name, username, password)
+      (name, username, password, img_url, bio)
     VALUES
-      ($1, $2, $3)
+      ($1, $2, $3, $4, $5)
     RETURNING
       *
   `, [
     name,
     username || null,
-    password
+    password,
+    img_url,
+    bio
   ])
     .then((results) => results.rows[0]);
 }

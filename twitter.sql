@@ -2,7 +2,9 @@ CREATE TABLE users (
   ID SERIAL PRIMARY KEY,
   name TEXT,
   username TEXT UNIQUE NOT NULL,
-  password TEXT
+  password TEXT,
+  img_url TEXT,
+  bio TEXT,
 );
 
 CREATE TABLE tweets (
