@@ -9,6 +9,7 @@ const {
   createUser,
   createTweet,
   getUserByUsername,
+  editUserByUsername,
   getTweetsByUsername,
 } = require("./services/database");
 
@@ -72,6 +73,12 @@ app.post("/signup", async (req, res) => {
 app.get("/edit/:username", async (req, res) => {
   const { username } = req.params;
   const user = await getUserByUsername(username);
+  res.send(user);
+})
+
+app.post("/edit", async (req, res) => {
+  const { name, username, password, img_url, bio } = req.body;
+  const user = await editUserByUsername( name, username, password, img_url, bio );
   res.send(user);
 })
 
